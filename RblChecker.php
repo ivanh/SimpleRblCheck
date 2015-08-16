@@ -228,8 +228,9 @@ class RblChecker
     );
     public function check($ip)
     {
-        $r = new Net_DNS2_Resolver(array());
+        $r     = new Net_DNS2_Resolver(array());
         $parts = explode('.', $ip);
+        $fails = array();
         foreach(self::$blacklists as $b)
         {
             try {
@@ -239,5 +240,6 @@ class RblChecker
             }
             $fails[] = array('ip' => $i, 'list' => $b);
         }
+        return $fails;
     }
 }
