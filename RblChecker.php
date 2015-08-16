@@ -238,7 +238,7 @@ class RblChecker
             } catch(Net_DNS2_Exception $e) {
                 continue;
             }
-            $fails[] = array('ip' => $i, 'list' => $b);
+            $fails[] = array('ip' => $ip, 'list' => $b);
         }
         return $fails;
     }
